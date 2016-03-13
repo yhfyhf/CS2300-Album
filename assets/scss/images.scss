@@ -1,0 +1,16 @@
+div.responsive {
+  div.image {
+    width: 90%;
+    margin: auto;
+
+    img {
+      width: 100%;
+      height: 300px;
+    }
+
+    p.credit {
+      display: block;
+      width: 100%;
+    }
+  }
+}

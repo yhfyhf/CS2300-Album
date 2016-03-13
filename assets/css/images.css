@@ -1,0 +1,13 @@
+div.responsive div.image {
+  width: 90%;
+  margin: auto;
+}
+div.responsive div.image img {
+  width: 100%;
+  height: 300px;
+}
+div.responsive div.image p.credit {
+  display: block;
+  width: 100%;
+}
+

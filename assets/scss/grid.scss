@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+div.main {
+  div.responsive {
+    float: left;
+    width: 24.99999%;
+    height: 400px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  @media only screen and (max-width: 800px){
+    div.responsive {
+      width: 49.99999%;
+    }
+  }
+
+  @media only screen and (max-width: 500px){
+    div.responsive {
+      width: 100%;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  }
+
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
