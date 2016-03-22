@@ -2,26 +2,65 @@
   box-sizing: border-box;
 }
 
-div.main div.responsive {
+body {
+  background: url(../../images/bg.jpg) center top;
+  background-size: 100% auto;
+}
+body div.container {
+  width: 80%;
+  margin: auto auto 30px;
+}
+body div.container div.header h1 {
+  font-size: 52px;
+  font-family: 'Fjalla One', sans-serif;
+}
+body div.container a {
+  color: #000;
+}
+body div.container a.nodec:link {
+  color: #000;
+  text-decoration: none;
+}
+body div.container a.nodec:visited {
+  color: #000;
+  text-decoration: none;
+}
+body div.container a.nodec:active {
+  color: #000;
+  text-decoration: none;
+}
+body div.container div.main {
+  width: 100%;
+}
+body div.container div.main div.responsive {
   float: left;
   width: 24.99999%;
-  height: 400px;
+  height: 460px;
   margin-top: 20px;
   margin-bottom: 20px;
+  display: block;
 }
-@media only screen and (max-width: 800px) {
-  div.main div.responsive {
+body div.container div.main div.responsive span.bold {
+  font-weight: 600;
+}
+@media screen and (max-width: 1000px) {
+  body div.container div.main div.responsive {
+    width: 33.33333%;
+  }
+}
+@media screen and (max-width: 800px) {
+  body div.container div.main div.responsive {
     width: 49.99999%;
   }
 }
-@media only screen and (max-width: 500px) {
-  div.main div.responsive {
+@media screen and (max-width: 500px) {
+  body div.container div.main div.responsive {
     width: 100%;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
-div.main .clearfix:after {
+body div.container div.main .clearfix:after {
   content: "";
   display: table;
   clear: both;

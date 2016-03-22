@@ -1,16 +1,117 @@
-.responsive div.album {
+div.container .responsive div.album {
   width: 90%;
-  margin: auto;
-  border: 1px solid #ccc;
 }
-.responsive div.album img {
+div.container .responsive div.album p.title {
+  font-weight: 800;
+  font-size: 24px;
+  color: #000;
+  font-family: Helvetica, Arial, sans-serif;
+}
+div.container .responsive div.album .cover {
+  display: block;
+  height: 250px;
+}
+div.container .responsive div.album .cover figure {
+  overflow: hidden;
   width: 100%;
-  height: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
-.responsive div.album div.desc {
+div.container .responsive div.album .cover figure img {
+  width: 100%;
+  height: 250px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+div.container .responsive div.album .cover figure:hover img {
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4);
+}
+div.container .responsive div.album .cover div.dummy {
+  height: 100%;
+  background-color: #DCDCDC;
+}
+div.container .responsive div.album .cover div.dummy p {
+  display: block;
+  text-align: center;
+  padding-top: 45%;
+  font-size: 26px;
+}
+div.container .responsive div.album .cover div.dummy form {
+  margin: auto;
+  width: 90%;
+  padding-top: 1px;
+}
+div.container .responsive div.album .cover div.dummy form h4 {
+  text-align: center;
+}
+div.container .responsive div.album .cover div.dummy form label {
+  font-weight: 900;
+}
+div.container .responsive div.album .cover div.dummy form input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 20px;
+  width: 90%;
+}
+div.container .responsive div.album .cover div.dummy form select {
+  width: 90%;
+  margin-bottom: 5px;
+}
+div.container .responsive div.album div.desc {
   padding: 15px;
   text-align: center;
 }
-.responsive div.img:hover {
+div.container .responsive div.img:hover {
   border: 1px solid #777;
+}
+div.container form#add_album {
+  display: table;
+}
+div.container form#add_album label {
+  position: relative;
+  display: block;
+}
+div.container form#add_album label input {
+  font: 18px Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  padding: 20px;
+  width: 400px;
+  margin-bottom: 20px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+div.container form#add_album label input:focus, div.container form#add_album label input.populated {
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+div.container form#add_album label input:focus + span, div.container form#add_album label input.populated + span {
+  opacity: 1;
+  top: 10px;
+}
+div.container form#add_album label span {
+  color: #000;
+  font: 13px Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+div.container form#add_album input[type="submit"] {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font: 18px Helvetica, Arial, sans-serif;
+  border: none;
+  background: #808080;
+  color: #fff;
+  padding: 16px 40px;
+}
+div.container form#add_album input[type="submit"]:hover {
+  background: #C0C0C0;
 }
