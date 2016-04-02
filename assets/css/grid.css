@@ -10,9 +10,16 @@ body div.container {
   width: 80%;
   margin: auto auto 30px;
 }
+body div.container div.header {
+  font-family: 'Fjalla One', sans-serif;
+}
 body div.container div.header h1 {
   font-size: 52px;
-  font-family: 'Fjalla One', sans-serif;
+}
+body div.container div.header span {
+  font-size: 32px;
+  font-weight: 600;
+  margin-right: 30px;
 }
 body div.container a {
   color: #000;

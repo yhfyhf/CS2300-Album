@@ -1,0 +1,55 @@
+form#login {
+  display: table;
+  width: 60%;
+
+  label {
+    position: relative;
+    display: block;
+
+    input {
+      font: 14px Helvetica, Arial, sans-serif;
+      box-sizing: border-box;
+      display: block;
+      border: none;
+      padding: 20px;
+      width: 80%;
+      margin-bottom: 12px;
+      outline: none;
+      transition: all 0.2s ease-in-out;
+
+      &:focus, &.populated {
+        padding-top: 28px;
+        padding-bottom: 12px;
+
+        & + span {
+          opacity: 1;
+          top: 10px;
+        }
+      }
+    }
+
+    span {
+      color: #000;
+      font: 13px Helvetica, Arial, sans-serif;
+      position: absolute;
+      top: 0px;
+      left: 20px;
+      opacity: 0;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  input[type="submit"] {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font: 18px Helvetica, Arial, sans-serif;
+    border: none;
+    background: #808080;
+    color: #fff;
+    padding: 16px 40px;
+
+    &:hover {
+      background: #C0C0C0;
+    }
+  }
+}

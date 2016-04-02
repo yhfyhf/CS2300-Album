@@ -5,9 +5,19 @@ div.container {
 
       p.title {
         font-weight: 800;
-        font-size: 24px;
+        font-size: 20px;
         color: #000;
         font-family: Helvetica, Arial, sans-serif;
+      }
+
+      figure { /* for empty albums */
+        overflow: hidden;
+        width: 100%;
+        height: 250px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid;
       }
 
       .cover {
@@ -15,12 +25,6 @@ div.container {
         height: 250px;
 
         figure {
-          overflow: hidden;
-          width: 100%;
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-
           img {
             width: 100%;
             height: 250px;
@@ -86,9 +90,58 @@ div.container {
     div.img:hover {
       border: 1px solid #777;
     }
+
+    div.image {
+      width: 90%;
+
+      p.caption {
+        font-weight: 800;
+        font-size: 20px;
+        font-family: Helvetica, Arial, sans-serif;
+      }
+
+      figure {
+        overflow: hidden;
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+
+        img {
+          width: 100%;
+          height: 250px;
+          -webkit-transform: scale(1);
+          transform: scale(1);
+          -webkit-transition: .3s ease-in-out;
+          transition: .3s ease-in-out;
+        }
+      }
+
+      figure:hover {
+        img {
+          -webkit-transform: scale(1.4);
+          transform: scale(1.4);
+        }
+      }
+
+      p.credit {
+        display: block;
+        width: 100%;
+      }
+    }
   }
 
-  form#add_album {
+  form#add_album, form#upload {
+    display: table;
+    float: left;
+    width: 49.99999%;
+  }
+
+  form#search {
+    //float: left;
+  }
+
+  form#add_album, form#upload, form#login {
     display: table;
 
     label {
@@ -96,13 +149,13 @@ div.container {
       display: block;
 
       input {
-        font: 18px Helvetica, Arial, sans-serif;
+        font: 14px Helvetica, Arial, sans-serif;
         box-sizing: border-box;
         display: block;
         border: none;
         padding: 20px;
-        width: 400px;
-        margin-bottom: 20px;
+        width: 80%;
+        margin-bottom: 12px;
         outline: none;
         transition: all 0.2s ease-in-out;
 
@@ -140,6 +193,12 @@ div.container {
       &:hover {
         background: #C0C0C0;
       }
+    }
+  }
+
+  @media screen and (max-width: 600px){
+    form#add_album, form#upload {
+      width: 99.99999%;
     }
   }
 }

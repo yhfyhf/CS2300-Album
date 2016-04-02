@@ -11,9 +11,16 @@ body {
     margin: auto auto 30px;
 
     div.header {
+      font-family: 'Fjalla One', sans-serif;
+
       h1 {
         font-size: 52px;
-        font-family: 'Fjalla One', sans-serif;
+      }
+
+      span {
+        font-size: 32px;
+        font-weight: 600;
+        margin-right: 30px;
       }
     }
 

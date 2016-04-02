@@ -3,20 +3,23 @@ div.container .responsive div.album {
 }
 div.container .responsive div.album p.title {
   font-weight: 800;
-  font-size: 24px;
+  font-size: 20px;
   color: #000;
   font-family: Helvetica, Arial, sans-serif;
+}
+div.container .responsive div.album figure {
+  /* for empty albums */
+  overflow: hidden;
+  width: 100%;
+  height: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid;
 }
 div.container .responsive div.album .cover {
   display: block;
   height: 250px;
-}
-div.container .responsive div.album .cover figure {
-  overflow: hidden;
-  width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 div.container .responsive div.album .cover figure img {
   width: 100%;
@@ -68,33 +71,69 @@ div.container .responsive div.album div.desc {
 div.container .responsive div.img:hover {
   border: 1px solid #777;
 }
-div.container form#add_album {
+div.container .responsive div.image {
+  width: 90%;
+}
+div.container .responsive div.image p.caption {
+  font-weight: 800;
+  font-size: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+div.container .responsive div.image figure {
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.container .responsive div.image figure img {
+  width: 100%;
+  height: 250px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+div.container .responsive div.image figure:hover img {
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4);
+}
+div.container .responsive div.image p.credit {
+  display: block;
+  width: 100%;
+}
+div.container form#add_album, div.container form#upload {
+  display: table;
+  float: left;
+  width: 49.99999%;
+}
+div.container form#add_album, div.container form#upload, div.container form#login {
   display: table;
 }
-div.container form#add_album label {
+div.container form#add_album label, div.container form#upload label, div.container form#login label {
   position: relative;
   display: block;
 }
-div.container form#add_album label input {
-  font: 18px Helvetica, Arial, sans-serif;
+div.container form#add_album label input, div.container form#upload label input, div.container form#login label input {
+  font: 14px Helvetica, Arial, sans-serif;
   box-sizing: border-box;
   display: block;
   border: none;
   padding: 20px;
-  width: 400px;
-  margin-bottom: 20px;
+  width: 80%;
+  margin-bottom: 12px;
   outline: none;
   transition: all 0.2s ease-in-out;
 }
-div.container form#add_album label input:focus, div.container form#add_album label input.populated {
+div.container form#add_album label input:focus, div.container form#add_album label input.populated, div.container form#upload label input:focus, div.container form#upload label input.populated, div.container form#login label input:focus, div.container form#login label input.populated {
   padding-top: 28px;
   padding-bottom: 12px;
 }
-div.container form#add_album label input:focus + span, div.container form#add_album label input.populated + span {
+div.container form#add_album label input:focus + span, div.container form#add_album label input.populated + span, div.container form#upload label input:focus + span, div.container form#upload label input.populated + span, div.container form#login label input:focus + span, div.container form#login label input.populated + span {
   opacity: 1;
   top: 10px;
 }
-div.container form#add_album label span {
+div.container form#add_album label span, div.container form#upload label span, div.container form#login label span {
   color: #000;
   font: 13px Helvetica, Arial, sans-serif;
   position: absolute;
@@ -103,7 +142,7 @@ div.container form#add_album label span {
   opacity: 0;
   transition: all 0.2s ease-in-out;
 }
-div.container form#add_album input[type="submit"] {
+div.container form#add_album input[type="submit"], div.container form#upload input[type="submit"], div.container form#login input[type="submit"] {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   font: 18px Helvetica, Arial, sans-serif;
@@ -112,6 +151,11 @@ div.container form#add_album input[type="submit"] {
   color: #fff;
   padding: 16px 40px;
 }
-div.container form#add_album input[type="submit"]:hover {
+div.container form#add_album input[type="submit"]:hover, div.container form#upload input[type="submit"]:hover, div.container form#login input[type="submit"]:hover {
   background: #C0C0C0;
+}
+@media screen and (max-width: 600px) {
+  div.container form#add_album, div.container form#upload {
+    width: 99.99999%;
+  }
 }

@@ -1,0 +1,27 @@
+div.main {
+
+  div.image {
+    width: 90%;
+    margin: auto;
+
+    p.caption {
+      font-weight: 800;
+      font-size: 32px;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    p.credit {
+      display: block;
+      width: 100%;
+    }
+
+    span.tag {
+      margin-right: 15px;
+      font-style: italic;
+    }
+  }
+}
