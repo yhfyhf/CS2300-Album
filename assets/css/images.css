@@ -10,6 +10,12 @@ div.responsive div.image p.caption {
   font-size: 20px;
   font-family: Helvetica, Arial, sans-serif;
 }
+div.responsive div.image p.caption button.delete_image {
+  margin-left: 20px;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 div.responsive div.image figure {
   overflow: hidden;
   width: 100%;

@@ -51,15 +51,24 @@
         </div>
         <?php
     } else {
-        if ($username === 'admin' && $password === '123') {
-            echo "<p>Congratulations, $username, you logged in.</p>";
-            $_SESSION['logged_user'] = $username;
+        $sql = "select * from users where username='$username'";
+        $result = $mysqli->query($sql);
+
+        if ($result && $result->num_rows == 1) {
+            $row = $result->fetch_assoc();
+            $db_hash_password = $row['hashpassword'];
+
+            if (password_verify($password, $db_hash_password)) {
+                $_SESSION['logged_user'] = $username;
+                echo "<p>Congratulations, $username, you logged in.</p>";
+            } else {
+                echo "<p>You did not login successfully.</p>";
+            }
         } else {
             echo "<p>You did not login successfully.</p>";
         }
     }
     ?>
-
 
 </div>
 </body>

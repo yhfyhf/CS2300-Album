@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +41,10 @@
 
     <div class="main">
         <?php
+        if ($images->num_rows === 0) {
+            echo "<p><b>This album is empty.</b></p>";
+        }
+
         foreach ($images as $image) {
             echo "<div class='responsive'>";
             display_image($image['id'], $image['caption'], rawurlencode($image['file_name']), $image['credit']);

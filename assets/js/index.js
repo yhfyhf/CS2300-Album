@@ -11,9 +11,9 @@ $(function() {
         }
     });
 
-    $("p.title").click(function() {
-        var id = $(this).attr('id').substr(5);
-        $(this).hide();
+    $("p.title span").click(function() {
+        var id = $(this).attr('id').substr(10);
+        $(this).parent().hide();
         var form = $("form#edit_title"+id);
         form.css("display", "table");
         form.show();
@@ -41,5 +41,29 @@ $(function() {
         var id = $(this).attr('data-index');
         $("form#edit_description"+id).hide();
         $("p.description#description"+id).show();
+    });
+
+    $("button.delete_album").click(function() {
+        var c = confirm("Delete this album?");
+        if (c) {
+            var id = $(this).attr('id').substr(12);
+            var request = $.ajax({
+                url: "delete.php",
+                method: "POST",
+                data: {"album_id": id},
+                dataType: 'text',
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+
+            request.success(function(data) {
+                if (data.trim() == 'true') {
+                    $("div.album#album"+id).parent().remove();
+                } else {
+                    console.log(data);
+                }
+            });
+        }
     });
 });

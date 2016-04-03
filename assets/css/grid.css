@@ -72,3 +72,9 @@ body div.container div.main .clearfix:after {
   display: table;
   clear: both;
 }
+body span.bold {
+  font-weight: 600;
+}
+body .hidden {
+  display: none;
+}

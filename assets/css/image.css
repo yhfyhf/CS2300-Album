@@ -7,6 +7,9 @@ div.main div.image p.caption {
   font-size: 32px;
   font-family: Helvetica, Arial, sans-serif;
 }
+div.main div.image p.logged span {
+  cursor: pointer;
+}
 div.main div.image img {
   width: 100%;
 }
@@ -14,7 +17,47 @@ div.main div.image p.credit {
   display: block;
   width: 100%;
 }
+div.main div.image p.credit button#btn-edit {
+  cursor: pointer;
+}
 div.main div.image span.tag {
   margin-right: 15px;
   font-style: italic;
+}
+div.main form#edit_caption, div.main form#edit_credit {
+  display: none;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+div.main form#edit_caption label, div.main form#edit_credit label {
+  position: relative;
+  display: block;
+}
+div.main form#edit_caption label input, div.main form#edit_credit label input {
+  font: 14px Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  padding: 20px;
+  width: 100%;
+  margin-bottom: 10px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+div.main form#edit_caption label input:focus, div.main form#edit_caption label input.populated, div.main form#edit_credit label input:focus, div.main form#edit_credit label input.populated {
+  padding-top: 28px;
+  padding-bottom: 12px;
+}
+div.main form#edit_caption label input:focus + span, div.main form#edit_caption label input.populated + span, div.main form#edit_credit label input:focus + span, div.main form#edit_credit label input.populated + span {
+  opacity: 1;
+  top: 10px;
+}
+div.main form#edit_caption label span, div.main form#edit_credit label span {
+  color: #000;
+  font: 13px Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 0px;
+  left: 20px;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
 }

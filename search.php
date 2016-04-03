@@ -2,10 +2,8 @@
 if (isset($_POST['search'])) {
     echo "<h1>Search Results</h1>";
 
-    $query = $_POST['query'];
+    $query = filter_input(INPUT_POST, 'query', FILTER_SANITIZE_STRING);
     $queries = explode(" ", $query);
-//    print_r($queries);
-
 
     echo "<h2>Albums</h2>";
     $albums = array();
@@ -15,8 +13,6 @@ if (isset($_POST['search'])) {
         $sql = "select * from albums where title like '%$query%' or description like '%$query%'";
         $result = $mysqli->query($sql);
         $albums = array_merge($albums, $result->fetch_all());
-        /*print_r($result);
-        print_r($albums);*/
 
         $sql = "select * from images where caption like '%$query%' or file_name like '%$query%'";
         $result = $mysqli->query($sql);
@@ -35,6 +31,8 @@ if (isset($_POST['search'])) {
                     rawurlencode($file_name), $albums);
                 echo "</div>";
             }
+        } else {
+            echo "<p><b>No related albums.</b></p>";
         }
         ?>
         <div class="clearfix"></div>
@@ -48,6 +46,8 @@ if (isset($_POST['search'])) {
             display_image($image[0], $image[1], rawurlencode($image[2]), $image[3]);
             echo "</div>";
         }
+    } else {
+        echo "<p><b>No related images.</b></p>";
     }
 
     echo "<div class='clearfix'></div>";

@@ -8,6 +8,17 @@ div.container {
         font-size: 20px;
         color: #000;
         font-family: Helvetica, Arial, sans-serif;
+
+        span {
+          cursor: pointer;
+        }
+      }
+
+      button.delete_album {
+        margin-left: 20px;
+        font-size: 15px;
+        border-radius: 8px;
+        cursor: pointer;
       }
 
       figure { /* for empty albums */
@@ -41,49 +52,15 @@ div.container {
             transform: scale(1.4);
           }
         }
-
-        div.dummy {
-          height: 100%;
-          background-color: #DCDCDC;
-
-          p {
-            display: block;
-            text-align: center;
-            padding-top: 45%;
-            font-size: 26px;
-          }
-
-          form {
-            margin: auto;
-            width: 90%;
-            padding-top: 1px;
-
-            h4 {
-              text-align: center;
-            }
-
-            label {
-              font-weight: 900;
-            }
-
-            input {
-              margin-top: 5px;
-              margin-bottom: 5px;
-              height: 20px;
-              width: 90%;
-            }
-
-            select {
-              width: 90%;
-              margin-bottom: 5px;
-            }
-          }
-        }
       }
 
       div.desc {
         padding: 15px;
         text-align: center;
+      }
+
+      p.logged {
+        cursor: pointer;
       }
     }
 
@@ -137,10 +114,6 @@ div.container {
     width: 49.99999%;
   }
 
-  form#search {
-    //float: left;
-  }
-
   form#add_album, form#upload, form#login {
     display: table;
 
@@ -192,6 +165,46 @@ div.container {
 
       &:hover {
         background: #C0C0C0;
+      }
+    }
+  }
+
+  form.edit_title, form.edit_description {
+    display: none;
+
+    label {
+      position: relative;
+      display: block;
+
+      input {
+        font: 14px Helvetica, Arial, sans-serif;
+        box-sizing: border-box;
+        display: block;
+        border: none;
+        padding: 20px;
+        margin-bottom: 4px;
+        outline: none;
+        transition: all 0.2s ease-in-out;
+
+        &:focus, &.populated {
+          padding-top: 26px;
+          padding-bottom: 12px;
+
+          & + span {
+            opacity: 1;
+            top: 10px;
+          }
+        }
+      }
+
+      span {
+        color: #000;
+        font: 13px Helvetica, Arial, sans-serif;
+        position: absolute;
+        top: 0px;
+        left: 20px;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
       }
     }
   }

@@ -15,10 +15,41 @@
 </head>
 
 <body>
+
+<?php
+include_once 'mysql_connection.php';
+
+if (!empty($_POST['edit_title'])) {
+    if (empty($_SESSION['logged_user'])) {
+        echo "<p>You must be logged in to use this feature</p>";
+    } else {
+        $album_id = filter_input(INPUT_POST, 'album_id', FILTER_SANITIZE_NUMBER_INT);
+        $new_title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
+        $sql = "update albums set title='$new_title' where id=$album_id";
+        $mysqli->query($sql);
+        $sql = "update albums set date_modified=current_timestamp where id=$album_id";
+        $mysqli->query($sql);
+    }
+}
+
+if (!empty($_POST['edit_description'])) {
+    if (empty($_SESSION['logged_user'])) {
+        echo "<p>You must be logged in to use this feature</p>";
+    } else {
+        $album_id = filter_input(INPUT_POST, 'album_id', FILTER_SANITIZE_NUMBER_INT);
+        $new_description = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
+        $sql = "update albums set description='$new_description' where id=$album_id";
+        $mysqli->query($sql);
+        $sql = "update albums set date_modified=current_timestamp where id=$album_id";
+        $mysqli->query($sql);
+    }
+}
+
+?>
+
 <div class="container">
     <?php
     include "header.php";
-    include_once 'mysql_connection.php';
     include 'util.php';
 
     include "search.php";

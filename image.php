@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="assets/css/grid.css">
     <link rel="stylesheet" href="assets/css/image.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="assets/js/images.js"></script>
+    <script src="assets/js/image.js"></script>
 </head>
 
 <body>
@@ -21,11 +21,36 @@ if (!isset($_GET['image']) || !ctype_digit($_GET['image'])) {
 }
 ?>
 
+<?php
+
+include_once 'mysql_connection.php';
+
+$image_id = $_GET['image'];
+
+if (!empty($_POST['edit_caption'])) {
+    if (empty($_SESSION['logged_user'])) {
+        echo "<p>You must be logged in to use this feature</p>";
+    } else {
+        $new_caption = filter_input(INPUT_POST, 'caption', FILTER_SANITIZE_STRING);
+        $sql = "update images set caption='$new_caption' where id=$image_id";
+        $mysqli->query($sql);
+    }
+}
+
+if (!empty($_POST['edit_credit'])) {
+    if (empty($_SESSION['logged_user'])) {
+        echo "<p>You must be logged in to use this feature</p>";
+    } else {
+        $new_credit = filter_input(INPUT_POST, 'credit', FILTER_SANITIZE_STRING);
+        $sql = "update images set credit='$new_credit' where id=$image_id";
+        $mysqli->query($sql);
+    }
+}
+?>
+
 <div class="container">
     <?php
     include "header.php";
-
-    $image_id = $_GET['image'];
 
     include_once 'mysql_connection.php';
     include_once 'util.php';

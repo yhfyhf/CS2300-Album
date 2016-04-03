@@ -2,7 +2,10 @@
 function display_image($image_id, $caption, $file_name, $credit){
     $html = "
         <div class='image' id='image$image_id'>
-            <p class='caption'><span class='bold'>$caption</span></p>
+            <p class='caption'>
+                <span class='bold'>$caption</span>
+                <button class='delete_image' id='delete_image$image_id'>Delete</button>
+            </p>
             <figure>
                 <a href='image.php?image=$image_id'><img src='images/$file_name' alt='$caption'></a>
             </figure>
@@ -13,10 +16,27 @@ function display_image($image_id, $caption, $file_name, $credit){
 }
 
 function display_album($album_id, $title, $date_created, $date_modified, $description, $cover_path) {
-    $html = "
+    if (empty($_SESSION['logged_user'])) {
+        $html = "
     <div class='album' id='album$album_id'>
         <p class='title'><a href='images.php?album=$album_id' class='nodec'>$title</a></p>";
-        
+    } else {
+        $html = "
+    <div class='album' id='album$album_id'>
+        <p class='title' id='title$album_id'>
+            <span id='span_title$album_id'>$title</span>
+            <button class='delete_album' id='delete_album$album_id'>Delete</button>
+        </p>
+        <form action='index.php' class='edit_title' id='edit_title$album_id' method='post'>
+            <label for='title'>
+                <input type='text' name='title' id='title' class='title' data-index='$album_id' value='$title' required>
+                <span>Title</span>
+            </label>
+            <input type='text' name='album_id' value='$album_id' class='hidden' required>
+            <input type='submit' name='edit_title' class='hidden'>
+        </form>";
+    }
+
     if (!empty($cover_path)) {
         $html .= "<a href='images.php?album=$album_id' class='cover'>
                 <figure>
@@ -24,14 +44,30 @@ function display_album($album_id, $title, $date_created, $date_modified, $descri
                 </figure>
             </a>";
     } else {
-        $html .= "<figure><h1>Empty</h1></figure>";
+        $html .= "<a href='images.php?album=$album_id' class='cover'><figure><h1>Empty</h1></figure></a>";
     }
 
-    $html .= "
+    if (empty($_SESSION['logged_user'])) {
+        $html .= "
         <p><span class='bold'>Date Created: </span>$date_created</p>
         <p><span class='bold'>Date Modified: </span>$date_modified</p>
         <p><span class='bold'>Description: </span>$description</p>
     </div>";
+    } else {
+        $html .= "
+        <p><span class='bold'>Date Created: </span>$date_created</p>
+        <p><span class='bold'>Date Modified: </span>$date_modified</p>
+        <p class='description logged' id='description$album_id'><span class='bold'>Description: </span>$description</p>
+        <form action='index.php' class='edit_description' id='edit_description$album_id' method='post'>
+            <label for='description'>
+                <input type='text' name='description' id='description' class='description' data-index='$album_id' value='$description' required>
+                <span>Description</span>
+            </label>
+            <input type='text' name='album_id' value='$album_id' class='hidden' required>
+            <input type='submit' name='edit_description' class='hidden'>
+        </form>
+    </div>";
+    }
 
     echo $html;
 }
@@ -75,14 +111,38 @@ function display_upload_form($albums) {
 }
 
 function show_image($image_id, $caption, $file_name, $credit, $album_titles){
-    $html = "
+    if (empty($_SESSION['logged_user'])) {
+        $html = "
         <div class='image' id='image$image_id'>
             <p class='caption'><span class='bold'>$caption</span></p>
             <img src='images/$file_name' alt='$caption'>
             <p class='credit'>Credit: <a href='$credit' target='_blank'>$credit</a></p>
             <p>In Albums: ";
-    ?>
-    <?php
+    } else {
+        $html = "
+        <div class='image' id='image$image_id'>
+            <p class='caption logged'><span class='bold'>$caption</span></p>
+            <form action='image.php?image=$image_id' id='edit_caption' method='post'>
+                <label for='caption'>
+                    <input type='text' name='caption' id='caption' value='$caption' required>
+                    <span>Caption</span>
+                </label>
+                <input type='submit' name='edit_caption' class='hidden'>
+            </form>
+            <img src='images/$file_name' alt='$caption'>
+            <p class='credit'>
+                <span class='bold'>Credit: </span><a href='$credit' target='_blank'>$credit</a>
+                <button id='btn-edit'>Edit</button>
+            </p>
+            <form action='image.php?image=$image_id' id='edit_credit' method='post'>
+                <label for='credit'>
+                    <input type='text' name='credit' id='credit' value='$credit' required>
+                    <span>Credit</span>
+                </label>
+                <input type='submit' name='edit_credit' class='hidden'>
+            </form>
+            <p><span class='bold'>In Albums: </span>";
+    }
     foreach ($album_titles as $album_title) {
         $html .= "<span class='tag'>$album_title[0]</span>";
     }
