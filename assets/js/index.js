@@ -11,33 +11,35 @@ $(function() {
         }
     });
 
-    setTimeout(function() {
-        $('#fname').trigger('focus');
-    }, 500);
-
-    $('div.movie').mouseover(function() {
-        var index = this.id;
-        if (index != 0) {
-            $("li#close"+index).show();
-        }
+    $("p.title").click(function() {
+        var id = $(this).attr('id').substr(5);
+        $(this).hide();
+        var form = $("form#edit_title"+id);
+        form.css("display", "table");
+        form.show();
+        form.find("input#title").css("width", "300px");
+        form.find("input#title").focus();
     });
 
-    $('div.movie').mouseout(function() {
-        var index = this.id;
-        if (index != 0) {
-            $("li#close"+index).hide();
-        }
+    $("input.title").focusout(function() {
+        var id = $(this).attr('data-index');
+        $("form#edit_title"+id).hide();
+        $("p.title#title"+id).show();
     });
 
-    $("li.close").click(function() {
-        var $index = this.id.substr(5);
-        var r = confirm("Delete this movie?");
-        if (r) {
-            $.post( "delete.php", { index: $index})
-                .done (function() {
-                    //$("div.movie#"+$index).remove();
-                    window.location.href="index.php";
-                });
-        }
+    $("p.description").click(function() {
+        var id = $(this).attr('id').substr(11);
+        $(this).hide();
+        var form = $("form#edit_description"+id);
+        form.css("display", "table");
+        form.show();
+        form.find("input#description").css("width", "300px");
+        form.find("input#description").focus();
+    });
+
+    $("input.description").focusout(function() {
+        var id = $(this).attr('data-index');
+        $("form#edit_description"+id).hide();
+        $("p.description#description"+id).show();
     });
 });
