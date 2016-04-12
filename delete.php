@@ -21,4 +21,3 @@ if (empty($_SESSION['logged_user'])) {
     }
 }
 ?>
-

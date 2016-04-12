@@ -5,7 +5,7 @@ if (isset($_POST['search'])) {
     $query = filter_input(INPUT_POST, 'query', FILTER_SANITIZE_STRING);
     $queries = explode(" ", $query);
 
-    echo "<h2>Albums</h2>";
+    echo "<h2>Albums:</h2>";
     $albums = array();
     $images = array();
 
@@ -38,7 +38,7 @@ if (isset($_POST['search'])) {
         <div class="clearfix"></div>
 <?php
 
-    echo "<h2>Images</h2>";
+    echo "<h2>Images:</h2>";
 
     if (!empty($images)) {
         foreach ($images as $image) {

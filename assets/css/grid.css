@@ -50,12 +50,12 @@ body div.container div.main div.responsive {
 body div.container div.main div.responsive span.bold {
   font-weight: 600;
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
   body div.container div.main div.responsive {
     width: 33.33333%;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   body div.container div.main div.responsive {
     width: 49.99999%;
   }

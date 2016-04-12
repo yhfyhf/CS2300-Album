@@ -3,7 +3,7 @@ div.container .responsive div.album {
 }
 div.container .responsive div.album p.title {
   font-weight: 800;
-  font-size: 20px;
+  font-size: 18px;
   color: #000;
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -11,8 +11,8 @@ div.container .responsive div.album p.title span {
   cursor: pointer;
 }
 div.container .responsive div.album button.delete_album {
-  margin-left: 20px;
-  font-size: 15px;
+  margin-left: 10px;
+  font-size: 12px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -25,10 +25,22 @@ div.container .responsive div.album figure {
   margin-left: auto;
   margin-right: auto;
   border: 2px solid;
+  text-decoration: none;
+}
+div.container .responsive div.album figure h1 {
+  width: 30%;
+  margin-left: 25%;
+  margin-top: 40%;
 }
 div.container .responsive div.album .cover {
   display: block;
   height: 250px;
+}
+div.container .responsive div.album .cover figure {
+  text-decoration: none;
+}
+div.container .responsive div.album .cover figure h1 {
+  text-decoration: none;
 }
 div.container .responsive div.album .cover figure img {
   width: 100%;

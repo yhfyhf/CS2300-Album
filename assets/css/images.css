@@ -7,12 +7,12 @@ div.responsive div.image {
 }
 div.responsive div.image p.caption {
   font-weight: 800;
-  font-size: 20px;
+  font-size: 18px;
   font-family: Helvetica, Arial, sans-serif;
 }
 div.responsive div.image p.caption button.delete_image {
-  margin-left: 20px;
-  font-size: 15px;
+  margin-left: 10px;
+  font-size: 12px;
   border-radius: 8px;
   cursor: pointer;
 }

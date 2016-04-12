@@ -17,7 +17,8 @@ $(function() {
         var form = $("form#edit_title"+id);
         form.css("display", "table");
         form.show();
-        form.find("input#title").css("width", "300px");
+        form.find("input#title").css("width", "200px");
+        
         form.find("input#title").focus();
     });
 
@@ -33,7 +34,7 @@ $(function() {
         var form = $("form#edit_description"+id);
         form.css("display", "table");
         form.show();
-        form.find("input#description").css("width", "300px");
+        form.find("input#description").css("width", "200px");
         form.find("input#description").focus();
     });
 

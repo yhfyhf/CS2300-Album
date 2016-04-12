@@ -13,10 +13,12 @@ div.main div.image p.logged span {
 div.main div.image img {
   width: 100%;
 }
+div.main div.image p.date_taken,
 div.main div.image p.credit {
   display: block;
   width: 100%;
 }
+div.main div.image p.date_taken button#btn-edit,
 div.main div.image p.credit button#btn-edit {
   cursor: pointer;
 }
